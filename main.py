@@ -1,29 +1,30 @@
 from recipies import *
 
-def print_formatted_recipie_names(recipies):
+def formatted_recipie_names(recipies):
+    names = []
     for recipie in recipies:
-        for dict in recipie:
-            for key in dict:
-                if dict[key] == "*":
-                    print(key.capitalize())
+        names.append(recipie[0].capitalize())
+
+    return names
 
 def get_recipie(recipies, name):
     print(f"Searching for {name}...")
     for recipie in recipies:
-        #print(f"layer 1 {recipie}")
-        for dict in recipie:
-            #print(f"    layer 2 {dict}")
-            for key in dict:
-                #print(f"        layer 3 {key}")
-                if dict[key] == "*":
-                    if key == name.lower():
-                        return recipie[1:]
+        if recipie[0] == name.lower():
+            for dict in recipie[1:]:
+                ingredients = []
+                for key in dict:
+                    ingredients.append(key)
+                                     
+            return ingredients
     return "No recipie found"
 
 def main():
     print("Program Start...")
-    print_formatted_recipie_names(recipies)
-    print(get_recipie(recipies, "spagetti"))
+    print("Recipies:")
+    print(formatted_recipie_names(recipies))
+    name = "cake"
+    print(f"ingredients for {name}: {get_recipie(recipies, name)}")
     print("Exit...")
 
 if __name__ == "__main__":
