@@ -19,12 +19,27 @@ def get_recipie(recipies, name):
             return ingredients
     return "No recipie found"
 
+def search_by_ingredient(recipies, name):
+    result = [] 
+    for recipie in recipies:
+        for dict in recipie[1:]:
+            for key in dict:
+                if key == name.lower():
+                    result.append(recipie[0])
+    if len(result) > 0:
+        return result
+    return "No result found"
+
 def main():
+    name = "chicken"
+    ingredient = "yogurt"
     print("Program Start...")
     print("Recipies:")
     print(formatted_recipie_names(recipies))
-    name = "cake"
-    print(f"ingredients for {name}: {get_recipie(recipies, name)}")
+    
+    print(f"Ingredients for {name}: {get_recipie(recipies, name)}")
+    print(f"Serching for recipies with {ingredient}:")
+    print(search_by_ingredient(recipies, ingredient))
     print("Exit...")
 
 if __name__ == "__main__":
