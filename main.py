@@ -30,10 +30,22 @@ def search_by_ingredient(recipies, name):
         return result
     return "No result found"
 
+def get_pantry(pantry):
+    result = []
+    for item in pantry:
+        for key in item:
+            result.append(key)
+    if len(result) > 0:
+        return result
+    return "Your pantry is empty."
+
+
 def main():
     name = "chicken"
     ingredient = "yogurt"
     print("Program Start...")
+    print("Pantry:")
+    print(get_pantry(pantry))
     print("Recipies:")
     print(formatted_recipie_names(recipies))
     
