@@ -19,5 +19,17 @@ Search for recipie
         output; returns the list that matches the name
 
 Search for ingredient
-    (name)
+    search_by_ingredient
     returns a list of recipies that share that ingredient
+
+Get all items in pantry
+    get_pantry
+    returns a list of all items in the pantry
+
+Get all recipies that can curretnly be made
+    (name)
+    return a list of all the recipies that can be made with what is currently in the pantry
+        input: pantry and all recipies
+        output:
+            All recipies that can currently be made
+            All recipies that can be partially made, with a list of what ingredients are currently missing
