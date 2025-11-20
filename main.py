@@ -39,10 +39,25 @@ def get_pantry(pantry):
         return result
     return "Your pantry is empty."
 
+def recipies_that_can_be_made(recipies, pantry):
+    result = []
+    for recipie in recipies:
+        can_make = True
+        for dict in recipie[1:]:
+            for key in dict:
+                for dict2 in pantry:
+                    if key in dict2:
+                        can_make = True
+                    else:
+                        can_make = False                            
+
+        if can_make:
+            result.append(recipie[0])
+    return result
 
 def main():
-    name = "chicken"
-    ingredient = "yogurt"
+    name = "Meatloaf"
+    ingredient = "White wine"
     print("Program Start...")
     print("Pantry:")
     print(get_pantry(pantry))
@@ -52,6 +67,7 @@ def main():
     print(f"Ingredients for {name}: {get_recipie(recipies, name)}")
     print(f"Serching for recipies with {ingredient}:")
     print(search_by_ingredient(recipies, ingredient))
+    print(f"Can make: {recipies_that_can_be_made(recipies, pantry)}")
     print("Exit...")
 
 if __name__ == "__main__":

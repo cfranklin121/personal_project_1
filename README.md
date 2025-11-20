@@ -27,9 +27,11 @@ Get all items in pantry
     returns a list of all items in the pantry
 
 Get all recipies that can curretnly be made
-    (name)
+    recipies_that_can_be_made
     return a list of all the recipies that can be made with what is currently in the pantry
         input: pantry and all recipies
         output:
             All recipies that can currently be made
             All recipies that can be partially made, with a list of what ingredients are currently missing
+        function:
+            take one recipie, search each ingrediant over the pantry and see if it's there. If they are all there it can be made. If one or more are missing, note the issing ingredient and add to the list if missing ingredients.
