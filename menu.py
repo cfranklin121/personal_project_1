@@ -1,5 +1,6 @@
 from main import *
 from recipies import *
+from help import *
 import os
 
 run = True
@@ -13,7 +14,8 @@ while run:
     print("Search recipies:              3")
     print("Search by ingredient          4")
     print("View makeable recipies:       5")
-    print("Exit:                         6")
+    print("Help                          6")
+    print("Exit:                         7")
     selection = int(input())
 
     match selection:
@@ -30,6 +32,8 @@ while run:
         case 5:
             print(recipies_that_can_be_made(recipies, pantry))
         case 6:
+            help()
+        case 7:
             run = False
         case _:
             print("Invalid Selection")
